@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" th:href="@{~/css/editswimmingpool.css}">
+  <title></title>
+</head>
+
+<body>
+<div class="insidecontent">
+  <div class="back">
+    <a th:href="@{/admin/view}"><i class="fa-solid fa-backward"> Back</i></a>
+  </div>
+  <h3>Edit the Info of Swimmingpool</h3>
+  <form th:method="post" th:action="@{/ball/save}" th:object="${swimmingpools}" enctype="multipart/form-data">
+
+  <div class="inputsection">
+    <input class="iddds" hidden type="text" th:field="*{fid}" th:value="${clickedswimmingpool.getFut_salId()}">
+
+    <div class="name swimmingpool">
+      <input type="text" placeholder="Enter the Swimmingpool name" required th:field="*{fname}" th:value="${clickedswimmingpool.getSwimmingpoolname()}">
+    </div>
+    <div class="price swimmingpool">
+      <input type="text" placeholder="Price of Swimmingpool per Hour" th:field="*{fprice}" th:value="${clickedswimmingpool.getSwimmingpoolprice()}">
+    </div>
+    <div class="contact swimmingpool">
+      <input type="text" placeholder="Enter the location of swimmingpool" th:field="*{fcontact}" th:value="${clickedswimmingpool.getSwimmingpoolcontact()}">
+    </div>
+    <div class="location swimmingpool">
+      <input type="text" placeholder="Enter the location of swimmingpool" th:field="*{flocation}" th:value="${clickedswimmingpool.getSwimmingpoollocation()}">
+    </div>
+    <div class="desc">
+      <textarea type="text" placeholder="Description About Swimmingpool"th:field="*{Description}" th:value="${clickedswimmingpool.getDescription()}"></textarea>
+    </div>
+    <div class="photo swimmingpool">
+      <input type="file"th:field="*{image}" th:value="${clickedswimmingpool.getSwimmingpoolimage()}">
+    </div>
+    <div class="photo swimmingpool">
+      <input type="file"th:field="*{image1}" th:value="${clickedswimmingpool.getSwimmingpoolimage1()}">
+    </div>
+    <div class="photo swimmingpool">
+      <input type="file"th:field="*{image2}" th:value="${clickedswimmingpool.getSwimmingpoolimage2()}">
+    </div>
+
+
+  </div>
+  <div class="edit">
+   <a th:href="@{~/admin/edit/}+${clickedswimmingpool.fut_salId}"> <button type="submit">Save Changes</button>
+   </a>
+  </div>
+  <div class="delete">
+   <a th:href="@{~/admin/delete/}+${clickedswimmingpool.fut_salId}"> <button type="button">Delete Swimmingpool</button>
+    </a>
+  </div>
+
+  </form>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
